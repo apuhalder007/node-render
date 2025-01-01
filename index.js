@@ -1,10 +1,13 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const students = require("./students.json");
 
 const port = process.env.PORT || 4000;
 
 const app = express();
+
+app.use(cors());
 
 const {TeaGuardMiddleware, stdGuardMiddleware} = require("./auth/guard");
 
