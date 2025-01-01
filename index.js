@@ -1,6 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const students = require("./students.json");
+
+const port = process.env.PORT || 4000;
+
 const app = express();
 
 const {TeaGuardMiddleware, stdGuardMiddleware} = require("./auth/guard");
@@ -26,7 +29,7 @@ app.get("*", (req, res) => {
   res.send(`Request not found!`);
 });
 
-app.listen(4000, () => {
+app.listen(port, () => {
   console.log("Server is running on port 3000");
 });
 
